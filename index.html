@@ -46,7 +46,7 @@
     "name": "Othkodylinz – Foto Wisuda",
     "image": ["https://i.ibb.co/wZ2kfv24/DSCF4182.jpg"],
     "url": "https://example.com/",
-    "telephone": "+62-813-2066-5866",
+    "telephone": "+62-851-9009-5866",
     "address": {"@type": "PostalAddress", "addressCountry": "ID"},
     "priceRange": "Rp.300.000",
     "sameAs": ["https://www.instagram.com/otkhodylinz_/"]
@@ -226,7 +226,7 @@
     </div>
   </section>
 
-  <!-- CONTACT / CTA (tetap, opsional) -->
+  <!-- CONTACT / CTA (opsional) -->
   <section id="kontak" class="py-20">
     <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -267,12 +267,7 @@
           <label class="text-xs text-gray-300 md:col-span-2">Tanggal Sesi *
             <input type="date" name="tanggal" class="w-full mt-1 p-3 border border-white/10 bg-black/40 rounded-xl" />
           </label>
-          <select name="jam" class="p-3 border border-white/10 bg-black/40 rounded-xl">
-            <option>09:00</option>
-            <option>13:00</option>
-            <option>16:00</option>
-            <option>Custom</option>
-          </select>
+          <select id="jamSelect" name="jam" class="p-3 border border-white/10 bg-black/40 rounded-xl"></select>
         </div>
 
         <div class="grid md:grid-cols-2 gap-4">
@@ -317,13 +312,27 @@
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
+    // === POPULATE SEMUA JAM (00:00–23:00) ===
+    const jamSelect = document.getElementById('jamSelect');
+    if (jamSelect) {
+      for (let h = 0; h < 24; h++) {
+        const label = `${String(h).padStart(2, '0')}:00`;
+        const opt = document.createElement('option');
+        opt.value = label;
+        opt.textContent = label;
+        jamSelect.appendChild(opt);
+      }
+      const custom = document.createElement('option');
+      custom.value = 'Custom';
+      custom.textContent = 'Custom';
+      jamSelect.appendChild(custom);
+    }
+
     // === KONFIG WHATSAPP ===
     const WA_NUMBER = "6285190095866"; // ganti jika perlu (tanpa +)
     const form = document.getElementById("waForm");
     const msg  = document.getElementById("waMsg");
     const agree = document.getElementById("agree");
-
-    function enc(s){ return encodeURIComponent(s || ""); }
 
     form?.addEventListener("submit", (e) => {
       e.preventDefault();
