@@ -264,9 +264,11 @@
         <input name="kampus" class="w-full p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Asal Universitas / Sekolah *" />
 
         <div class="grid md:grid-cols-3 gap-4">
-          <label class="text-xs text-gray-300 md:col-span-2">Tanggal Sesi *
-            <input type="date" name="tanggal" class="w-full mt-1 p-3 border border-white/10 bg-black/40 rounded-xl" />
-          </label>
+          <div class="relative md:col-span-2">
+            <label class="text-xs text-gray-300">Tanggal Sesi *</label>
+            <input type="text" id="tglDisplay" readonly class="w-full mt-1 p-3 border border-white/10 bg-black/40 rounded-xl cursor-pointer" placeholder="Pilih tanggal" />
+            <input type="date" id="tglPicker" name="tanggal" class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer" />
+          </div>
           <select id="jamSelect" name="jam" class="p-3 border border-white/10 bg-black/40 rounded-xl"></select>
         </div>
 
@@ -312,7 +314,7 @@
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // === POPULATE SEMUA JAM (00:00–23:00) ===
+    // === POPULATE SEMUA JAM (00:00–23:00) + Custom ===
     const jamSelect = document.getElementById('jamSelect');
     if (jamSelect) {
       for (let h = 0; h < 24; h++) {
@@ -328,40 +330,62 @@
       jamSelect.appendChild(custom);
     }
 
-    // === KONFIG WHATSAPP ===
-    const WA_NUMBER = "6285190095866"; // ganti jika perlu (tanpa +)
-    const form = document.getElementById("waForm");
-    const msg  = document.getElementById("waMsg");
-    const agree = document.getElementById("agree");
+    // === Toggle date (overlay input text + native date) ===
+    const tglPicker = document.getElementById('tglPicker');
+    const tglDisplay = document.getElementById('tglDisplay');
 
-    form?.addEventListener("submit", (e) => {
+    // Set min tanggal = hari ini (jam lokal)
+    const today = new Date();
+    const y = today.getFullYear();
+    const m = String(today.getMonth() + 1).padStart(2, '0');
+    const d = String(today.getDate()).padStart(2, '0');
+    tglPicker.min = `${y}-${m}-${d}`;
+
+    tglPicker?.addEventListener('change', () => {
+      const val = tglPicker.value;
+      if (val) {
+        const d = new Date(val + 'T00:00:00');
+        const formatted = d.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        tglDisplay.value = formatted;
+      } else {
+        tglDisplay.value = '';
+      }
+    });
+
+    // === Kirim ke WhatsApp ===
+    const WA_NUMBER = "6285190095866"; // ganti jika perlu (tanpa +)
+    const form = document.getElementById('waForm');
+    const msg  = document.getElementById('waMsg');
+    const agree = document.getElementById('agree');
+
+    form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      msg.textContent = "";
+      msg.textContent = '';
 
       const fd = new FormData(form);
       const data = {
-        nama: (fd.get("nama")||"").toString().trim(),
-        wa: (fd.get("wa")||"").toString().trim(),
-        kampus: (fd.get("kampus")||"").toString().trim(),
-        tanggal: (fd.get("tanggal")||"").toString(),
-        jam: (fd.get("jam")||"").toString(),
-        paket: (fd.get("paket")||"").toString(),
-        lokasi: (fd.get("lokasi")||"").toString().trim(),
-        catatan: (fd.get("catatan")||"").toString().trim()
+        nama: (fd.get('nama')||'').toString().trim(),
+        wa: (fd.get('wa')||'').toString().trim(),
+        kampus: (fd.get('kampus')||'').toString().trim(),
+        tanggal: (fd.get('tanggal')||'').toString(),
+        jam: (fd.get('jam')||'').toString(),
+        paket: (fd.get('paket')||'').toString(),
+        lokasi: (fd.get('lokasi')||'').toString().trim(),
+        catatan: (fd.get('catatan')||'').toString().trim()
       };
 
       // Validasi minimal
       if(!data.nama || !data.kampus || !data.tanggal || !data.lokasi){
-        msg.textContent = "Lengkapi field bertanda *.";
+        msg.textContent = 'Lengkapi field bertanda *.';
         return;
       }
       if(!agree?.checked){
-        msg.textContent = "Centang persetujuan kebijakan pemesanan.";
+        msg.textContent = 'Centang persetujuan kebijakan pemesanan.';
         return;
       }
 
       const lines = [
-        "Halo, saya ingin booking wisuda:",
+        'Halo, saya ingin booking wisuda:',
         `• Nama: ${data.nama}`,
         data.wa ? `• WA: ${data.wa}` : null,
         `• Kampus: ${data.kampus}`,
@@ -369,13 +393,14 @@
         `• Lokasi: ${data.lokasi}`,
         `• Jadwal: ${data.tanggal} ${data.jam}`,
         data.catatan ? `• Catatan: ${data.catatan}` : null
-      ].filter(Boolean).join("%0A");
+      ].filter(Boolean).join('%0A');
 
       const url = `https://wa.me/${WA_NUMBER}?text=${lines}`;
-      window.open(url, "_blank", "noopener");
-      msg.textContent = "Membuka WhatsApp…";
+      window.open(url, '_blank', 'noopener');
+      msg.textContent = 'Membuka WhatsApp…';
       form.reset();
       if (agree) agree.checked = false;
+      tglDisplay.value = '';
     });
   </script>
 </body>
