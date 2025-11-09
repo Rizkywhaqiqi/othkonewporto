@@ -6,34 +6,71 @@
   <title>Portofolio Foto Wisuda – Othkodylinz</title>
   <meta name="description" content="Portofolio foto wisuda: style minimal, elegan, dan timeless. Booking sesi wisuda indoor/outdoor, solo & group, cetak & album." />
 
+  <!-- SEO / Open Graph -->
+  <meta property="og:title" content="Portofolio Foto Wisuda – Othkodylinz" />
+  <meta property="og:description" content="Style minimal, elegan, dan timeless. Booking sesi wisuda sekarang." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/1.jpg" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Font & Tailwind -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            brand: {
+              50: '#f5f7ff', 100: '#eaeefe', 200: '#cfd7fd', 300: '#a9b7fb',
+              400: '#7a8ff7', 500: '#4e66f0', 600: '#3349c9', 700: '#2839a0', 800: '#212f80', 900: '#1d2a69'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
     .glass { backdrop-filter: blur(8px); background: rgba(0,0,0,0.35); }
   </style>
-</head>
 
+  <!-- JSON-LD (Photographer) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Othkodylinz – Foto Wisuda",
+    "image": ["https://i.ibb.co/wZ2kfv24/DSCF4182.jpg"],
+    "url": "https://example.com/",
+    "telephone": "+62-851-9009-5866",
+    "address": {"@type": "PostalAddress", "addressCountry": "ID"},
+    "priceRange": "Rp.300.000",
+    "sameAs": ["https://www.instagram.com/otkhodylinz_/"]
+  }
+  </script>
+</head>
 <body class="bg-black text-gray-100 antialiased">
   <!-- NAVBAR -->
-  <header class="fixed inset-x-0 top-0 z-50 bg-black/60 backdrop-blur border-b border-white/10">
-    <div class="mx-auto max-w-7xl px-4 flex items-center justify-between py-4">
-      <a href="#" class="flex items-center space-x-3">
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white text-black font-bold">OK</span>
-        <span class="text-sm tracking-widest uppercase text-gray-300">Othkodylinz</span>
-      </a>
-      <nav class="hidden md:flex items-center space-x-8 text-sm">
-        <a href="#porto" class="hover:text-white/80">Portofolio</a>
-        <a href="#paket" class="hover:text-white/80">Paket</a>
-        <a href="#proses" class="hover:text-white/80">Proses</a>
-        <a href="#faq" class="hover:text-white/80">FAQ</a>
-        <a href="#booking" class="rounded-xl bg-white text-black px-4 py-2 font-semibold hover:bg-white/90">Booking</a>
-      </nav>
-      <button id="navBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/10 px-3 py-2 text-sm">Menu</button>
+  <header class="fixed inset-x-0 top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-center justify-between py-4">
+        <a href="#" class="flex items-center space-x-3">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white text-black font-bold">OK</span>
+          <span class="text-sm tracking-widest uppercase text-gray-300">Othkodylinz</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-8 text-sm">
+          <a href="#porto" class="hover:text-white/80">Portofolio</a>
+          <a href="#paket" class="hover:text-white/80">Paket</a>
+          <a href="#proses" class="hover:text-white/80">Proses</a>
+          <a href="#faq" class="hover:text-white/80">FAQ</a>
+          <a href="#booking" class="rounded-xl bg-white text-black px-4 py-2 font-semibold hover:bg-white/90">Booking</a>
+        </nav>
+        <button id="navBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/10 px-3 py-2 text-sm">Menu</button>
+      </div>
     </div>
     <div id="mobileNav" class="md:hidden hidden border-t border-white/10 bg-black/80">
       <div class="mx-auto max-w-7xl px-4 py-3 space-y-3 text-sm">
@@ -46,40 +83,191 @@
     </div>
   </header>
 
-  <!-- BOOKING FORM -->
-  <section id="booking" class="pt-28 pb-20 border-y border-white/5 bg-gradient-to-b from-black to-black/90">
+  <!-- HERO -->
+  <section class="relative min-h-[90vh] grid place-items-center overflow-hidden">
+    <img src="images/4.jpg" alt="Foto wisuda outdoor" class="absolute inset-0 h-full w-full object-cover opacity-50" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black"></div>
+    <div class="relative z-10 mx-auto max-w-6xl px-4 py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center space-x-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 mb-4">
+          <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+          <span class="text-xs text-gray-300">Tersedia sesi minggu ini</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight">Othkodylinzgrads</h1>
+        <p class="mt-4 text-gray-300 max-w-xl">Momen kelulusanmu, diabadikan dengan sentuhan warna yang rapi dan komposisi yang bersih. Indoor, outdoor, solo atau group.</p>
+        <div class="mt-8 flex items-center gap-3">
+          <a href="#paket" class="rounded-xl bg-white text-black px-5 py-3 font-semibold hover:bg-white/90">Lihat Paket</a>
+          <a href="#porto" class="rounded-xl border border-white/15 px-5 py-3 font-semibold hover:bg-white/10">Lihat Karya</a>
+        </div>
+      </div>
+      <div class="glass rounded-3xl p-4 md:p-6 shadow-2xl border border-white/10">
+        <div class="grid grid-cols-3 gap-3">
+          <!-- PREVIEW GRID (replace src with your photos) -->
+          <img src="images/1.jpg" alt="Graduation portrait" class="rounded-2xl aspect-[3/4] object-cover" loading="lazy" />
+          <img src="images/2.jpg" alt="Graduation cap toss" class="rounded-2xl aspect-square object-cover" loading="lazy" />
+          <img src="images/3.jpg" alt="Graduation group photo" class="rounded-2xl aspect-[3/4] object-cover" loading="lazy" />
+          <img src="images/4.jpg" alt="Candid laugh" class="rounded-2xl aspect-square object-cover" loading="lazy" />
+          <img src="images/5.jpg" alt="Parents & graduate" class="rounded-2xl aspect-[3/4] object-cover" loading="lazy" />
+          <img src="images/6.jpg" alt="Studio setup" class="rounded-2xl aspect-[3/4] object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO GRID -->
+  <section id="porto" class="py-20">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl md:text-4xl font-semibold">Portofolio Pilihan</h2>
+        <a href="#booking" class="text-sm text-gray-300 hover:text-white">Booking sekarang →</a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Setiap item sekarang menjadi tautan ke halaman portofolio/detail -->
+        <a href="https://drive.google.com/drive/folders/1aJrrH4OAhlZqPEmiJ2LGolRU_ahM-wUR?usp=sharing" target="_blank" rel="noopener" aria-label="dyangrads2025" class="relative group rounded-2xl overflow-hidden block">
+          <img src="images/porto/1.jpg" alt="dyangrads2025" class="object-cover w-full aspect-[4/5] transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-end">
+            <span class="m-3 text-xs font-medium text-white/90">dyangrads2025</span>
+          </div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1icINIzFMUn67HabNdlyI3nuM1PBn9aOs?usp=sharing" target="_blank" rel="noopener" aria-label="claudyagrads2025" class="relative group rounded-2xl overflow-hidden block">
+          <img src="images/porto/2.jpg" alt="claudyagrads2025" class="object-cover w-full aspect-[4/5] transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-end">
+            <span class="m-3 text-xs font-medium text-white/90">claudyagrads2025</span>
+          </div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1A8kbcO6UOsz0k--Q6Tin17dCYQBIK1Uz?usp=sharing" target="_blank" rel="noopener" aria-label="fhaygrads2025" class="relative group rounded-2xl overflow-hidden block">
+          <img src="images/porto/3.jpg" alt="fhaygrads2025" class="object-cover w-full aspect-[4/5] transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-end">
+            <span class="m-3 text-xs font-medium text-white/90">fhaygrads2025</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DNUV2CzJJQF/?img_index=1" target="_blank" rel="noopener" aria-label="gradsutin2025" class="relative group rounded-2xl overflow-hidden block">
+          <img src="images/porto/4.jpg" alt="gradsutin2025" class="object-cover w-full aspect-[4/5] transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-end">
+            <span class="m-3 text-xs font-medium text-white/90">gradsutin2025</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="paket" class="py-20 bg-gradient-to-b from-black to-black/90 border-y border-white/5">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-2xl md:text-4xl font-semibold">Paket Wisuda</h2>
+      <p class="mt-2 text-gray-400">Harga dapat disesuaikan untuk group, add-on video teaser, cetak & album.</p>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <!-- Paket 1 -->
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl">
+          <h3 class="text-lg font-semibold">Wisuda</h3>
+          <p class="text-sm text-gray-300 mt-1">1-2 jam, 2 lokasi</p>
+          <div class="mt-4 text-3xl font-bold">Rp 300.000</div>
+          <ul class="mt-4 space-y-2 text-sm text-gray-300">
+            <li>✔ 45 foto edited (color grading)</li>
+            <li>✔ Drive delivery (1–2 hari)</li>
+            <li>✔ 6 orang</li>
+            <li>+Rp.20.000/orang</li>
+          </ul>
+          <a href="#booking" class="mt-6 inline-flex rounded-xl bg-white text-black px-4 py-2 font-semibold">Booking</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="proses" class="py-20">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-2xl md:text-4xl font-semibold">Alur Pemesanan</h2>
+      <div class="mt-10 grid md:grid-cols-4 gap-6">
+        <div class="rounded-2xl border border-white/10 p-5 bg-white/5">
+          <div class="text-4xl font-bold">1</div>
+          <h3 class="mt-2 font-semibold">Hubungi Kami</h3>
+          <p class="text-sm text-gray-300">Share jadwal, lokasi, dan konsep (solo/studio/outdoor).</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-5 bg-white/5">
+          <div class="text-4xl font-bold">2</div>
+          <h3 class="mt-2 font-semibold">Booking</h3>
+          <p class="text-sm text-gray-300">DP untuk lock tanggal. Receive guide styling & pose.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-5 bg-white/5">
+          <div class="text-4xl font-bold">3</div>
+          <h3 class="mt-2 font-semibold">Sesi Foto</h3>
+          <p class="text-sm text-gray-300">1–2 jam</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-5 bg-white/5">
+          <div class="text-4xl font-bold">4</div>
+          <h3 class="mt-2 font-semibold">Delivery</h3>
+          <p class="text-sm text-gray-300">Seleksi & color grade. Kirim via drive, optional cetak/album.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 border-y border-white/5">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-2xl md:text-4xl font-semibold">FAQ</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <details class="rounded-2xl border border-white/10 p-5 bg-white/5" open>
+          <summary class="font-semibold cursor-pointer">Berapa lama edit & kirim file?</summary>
+          <p class="mt-2 text-sm text-gray-300">1-2 hari kerja</p>
+        </details>
+        <details class="rounded-2xl border border-white/10 p-5 bg-white/5">
+          <summary class="font-semibold cursor-pointer">Bisa ganti outfit/lokasi?</summary>
+          <p class="mt-2 text-sm text-gray-300">Bisa. Rekomendasi lokasi outdoor/indoor tersedia saat konsultasi.</p>
+        </details>
+        <details class="rounded-2xl border border-white/10 p-5 bg-white/5">
+          <summary class="font-semibold cursor-pointer">File mentah (RAW) tersedia?</summary>
+          <p class="mt-2 text-sm text-gray-300">Ya. Yang diberikan adalah foto terpilih hasil grading dan ori.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA (opsional) -->
+  <section id="kontak" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl md:text-4xl font-semibold">Siap Booking Foto Wisuda?</h2>
+        <p class="mt-3 text-gray-300">Klik tombol di samping untuk konsultasi konsep & cek jadwal.</p>
+        <ul class="mt-6 space-y-2 text-sm text-gray-300">
+          <li>• WhatsApp fast response (09.00–20.00)</li>
+          <li>• Lokasi: Pontianak & sekitarnya</li>
+          <li>• Pembayaran: Transfer / E-wallet</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <a href="https://wa.me/6285190095866?text=Halo%20kak,%20mau%20booking%20foto%20wisuda" target="_blank" rel="noopener" class="block w-full text-center rounded-2xl bg-white text-black px-6 py-4 font-semibold hover:bg-white/90">Chat WhatsApp</a>
+        <div class="mt-4 grid grid-cols-3 gap-3 text-center text-xs text-gray-300">
+          <div class="rounded-xl border border-white/10 p-3">Indoor</div>
+          <div class="rounded-xl border border-white/10 p-3">Outdoor</div>
+          <div class="rounded-xl border border-white/10 p-3">Group</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING (langsung ke WhatsApp) -->
+  <section id="booking" class="py-20 border-y border-white/5 bg-gradient-to-b from-black to-black/90">
     <div class="mx-auto max-w-3xl px-4">
       <h2 class="text-2xl md:text-4xl font-semibold">Form Booking Wisuda</h2>
       <p class="mt-2 text-gray-300">Isi form berikut. Setelah kirim, WhatsApp akan terbuka untuk konfirmasi.</p>
 
       <form id="waForm" class="mt-8 space-y-5">
         <div class="grid md:grid-cols-2 gap-4">
-          <input name="nama" class="p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Nama Lengkap *" required />
+          <input name="nama" class="p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Nama Lengkap *" />
           <input name="wa" class="p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Nomor WhatsApp (62…)" />
         </div>
 
-        <input name="kampus" class="w-full p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Asal Universitas / Sekolah *" required />
+        <input name="kampus" class="w-full p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Asal Universitas / Sekolah *" />
 
-        <!-- DATE FIXED -->
         <div class="grid md:grid-cols-3 gap-4">
           <div class="relative md:col-span-2">
-            <label class="text-xs text-gray-300 block mb-1">Tanggal Sesi *</label>
-            <div class="relative">
-              <input
-                type="text"
-                id="tglDisplay"
-                readonly
-                class="w-full p-3 border border-white/10 bg-black/40 rounded-xl cursor-pointer z-10 relative"
-                placeholder="Pilih tanggal"
-              />
-              <input
-                type="date"
-                id="tglPicker"
-                name="tanggal"
-                class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer z-20"
-                required
-              />
-            </div>
+            <label class="text-xs text-gray-300">Tanggal Sesi *</label>
+            <input type="text" id="tglDisplay" readonly class="w-full mt-1 p-3 border border-white/10 bg-black/40 rounded-xl cursor-pointer" placeholder="Pilih tanggal" />
+            <input type="date" id="tglPicker" name="tanggal" class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer" />
           </div>
           <select id="jamSelect" name="jam" class="p-3 border border-white/10 bg-black/40 rounded-xl"></select>
         </div>
@@ -91,7 +279,7 @@
             <option>Gold</option>
             <option>Platinum</option>
           </select>
-          <input name="lokasi" class="p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Lokasi (Studio/Outdoor) *" required />
+          <input name="lokasi" class="p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Lokasi (Studio/Outdoor) *" />
         </div>
 
         <textarea name="catatan" rows="3" class="w-full p-3 border border-white/10 bg-black/40 rounded-xl" placeholder="Catatan (tema, tambahan orang, dll.)"></textarea>
@@ -119,13 +307,14 @@
   </footer>
 
   <script>
-    // NAV
+    // Mobile nav
     const navBtn = document.getElementById('navBtn');
     const mobileNav = document.getElementById('mobileNav');
     navBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // JAM OPTIONS 00:00–23:00 + CUSTOM
+    // === POPULATE SEMUA JAM (00:00–23:00) + Custom ===
     const jamSelect = document.getElementById('jamSelect');
     if (jamSelect) {
       for (let h = 0; h < 24; h++) {
@@ -141,58 +330,56 @@
       jamSelect.appendChild(custom);
     }
 
-    // DATE PICKER DISPLAY
+    // === Toggle date (overlay input text + native date) ===
     const tglPicker = document.getElementById('tglPicker');
     const tglDisplay = document.getElementById('tglDisplay');
+
+    // Set min tanggal = hari ini (jam lokal)
     const today = new Date();
     const y = today.getFullYear();
     const m = String(today.getMonth() + 1).padStart(2, '0');
     const d = String(today.getDate()).padStart(2, '0');
     tglPicker.min = `${y}-${m}-${d}`;
 
-    tglPicker.addEventListener('change', () => {
+    tglPicker?.addEventListener('change', () => {
       const val = tglPicker.value;
       if (val) {
-        const date = new Date(val + 'T00:00:00');
-        const formatted = date.toLocaleDateString('id-ID', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
+        const d = new Date(val + 'T00:00:00');
+        const formatted = d.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         tglDisplay.value = formatted;
       } else {
         tglDisplay.value = '';
       }
     });
 
-    // WHATSAPP
-    const WA_NUMBER = "6285190095866";
+    // === Kirim ke WhatsApp ===
+    const WA_NUMBER = "6285190095866"; // ganti jika perlu (tanpa +)
     const form = document.getElementById('waForm');
-    const msg = document.getElementById('waMsg');
+    const msg  = document.getElementById('waMsg');
     const agree = document.getElementById('agree');
 
-    form.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', (e) => {
       e.preventDefault();
       msg.textContent = '';
 
       const fd = new FormData(form);
       const data = {
-        nama: fd.get('nama')?.trim(),
-        wa: fd.get('wa')?.trim(),
-        kampus: fd.get('kampus')?.trim(),
-        tanggal: fd.get('tanggal')?.trim(),
-        jam: fd.get('jam'),
-        paket: fd.get('paket'),
-        lokasi: fd.get('lokasi')?.trim(),
-        catatan: fd.get('catatan')?.trim()
+        nama: (fd.get('nama')||'').toString().trim(),
+        wa: (fd.get('wa')||'').toString().trim(),
+        kampus: (fd.get('kampus')||'').toString().trim(),
+        tanggal: (fd.get('tanggal')||'').toString(),
+        jam: (fd.get('jam')||'').toString(),
+        paket: (fd.get('paket')||'').toString(),
+        lokasi: (fd.get('lokasi')||'').toString().trim(),
+        catatan: (fd.get('catatan')||'').toString().trim()
       };
 
-      if (!data.nama || !data.kampus || !data.tanggal || !data.lokasi) {
+      // Validasi minimal
+      if(!data.nama || !data.kampus || !data.tanggal || !data.lokasi){
         msg.textContent = 'Lengkapi field bertanda *.';
         return;
       }
-      if (!agree.checked) {
+      if(!agree?.checked){
         msg.textContent = 'Centang persetujuan kebijakan pemesanan.';
         return;
       }
@@ -208,10 +395,11 @@
         data.catatan ? `• Catatan: ${data.catatan}` : null
       ].filter(Boolean).join('%0A');
 
-      window.open(`https://wa.me/${WA_NUMBER}?text=${lines}`, '_blank', 'noopener');
+      const url = `https://wa.me/${WA_NUMBER}?text=${lines}`;
+      window.open(url, '_blank', 'noopener');
       msg.textContent = 'Membuka WhatsApp…';
       form.reset();
-      agree.checked = false;
+      if (agree) agree.checked = false;
       tglDisplay.value = '';
     });
   </script>
